@@ -3,7 +3,7 @@ package ${package};
 import com.google.inject.*;
 import picocli.CommandLine;
 
-public final class GuiceFactory implements CommandLine.IFactory {
+final class GuiceFactory implements CommandLine.IFactory {
     private static final GuiceFactory INSTANCE = new GuiceFactory();
     private static final Injector INJECTOR = Guice.createInjector(new MainModule());
 
