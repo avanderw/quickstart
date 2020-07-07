@@ -20,7 +20,7 @@ All notable changes to this project will be documented in [CHANGELOG](CHANGELOG.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-${hash}${hash} Todo
+${hash}${hash} Roadmap
 Refer to the file [.todo/todo.txt](.todo/todo.txt) for a list of potential future work.
 Here is a [complete primer](https://github.com/todotxt/todo.txt) on the whys and hows of todo.txt.
 
