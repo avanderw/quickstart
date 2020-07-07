@@ -2,7 +2,6 @@
 ${hash} ${groupId}.${artifactId} - tagline
 ![top-language](https://img.shields.io/github/languages/top/avanderw/${artifactId})
 ![license](https://img.shields.io/github/license/avanderw/${artifactId})
-![last-commit](http://img.shields.io/github/last-commit/avanderw/${artifactId}/develop)
 
 ${hash}${hash} Showcase
 
