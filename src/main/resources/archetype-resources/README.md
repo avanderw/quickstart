@@ -1,7 +1,9 @@
 #set($hash = '#')
-${hash} ${groupId}.${artifactId} - tagline
+${hash} ${groupId}.${artifactId}
 ![top-language](https://img.shields.io/github/languages/top/avanderw/${artifactId})
 ![license](https://img.shields.io/github/license/avanderw/${artifactId})
+
+_about tagline_
 
 ${hash}${hash} Showcase
 
