@@ -9,9 +9,33 @@ ${hash}${hash} Showcase
 
 ${hash}${hash} Getting started
 
+```shell script
+$ git clone https://github.com/avanderw/${artifactId}.git
+$ cd ${artifactId}/
+$ mvn verify
+$ java -jar ./target/${artifactId}.jar --help
+Usage: ${artifactId} [-hV] [COMMAND]
+about tagline
+  -h, --help      Show this help message and exit.
+  -V, --version   Print version information and exit.
+Commands:
+```
+
 ${hash}${hash} Usage
 
 ${hash}${hash} Support
+
+${hash}${hash}${hash} Installing supporting software
+> It is recommended to make use of a package manager to simplify the setup of your environment
+
+- Java 11
+- Maven 3.3.9
+
+${hash}${hash}${hash}${hash} Chocolatey (https://chocolatey.org/install)
+```cmd
+$ choco install ojdkbuild
+$ choco install maven 
+```
 
 ${hash}${hash} Changelog
 ![last-commit](https://img.shields.io/github/last-commit/avanderw/${artifactId})

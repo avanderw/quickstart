@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Version 1.0.2 (Maintenance release)
+Released on 2020-07-07
+
+### Changed
+- Update README getting started and support area
+- Change todo to roadmap
+- Refactor tagline to not be in the header of the README
+- Update file references to not include extensions in README
+- Update reference to readme file in supporting documents
+- Update header of changelog to name project
+
+### Removed
+- Remove duplicate last commit badge from README
+
+### Bug fixes
+- Fix readme reference to wrong license in use
+
 ## Version 1.0.1 (Maintenance release)
 Released on 2020-07-07
 
