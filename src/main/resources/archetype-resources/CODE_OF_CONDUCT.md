@@ -1,5 +1,6 @@
 #set($hash = '#')
 ${hash} Contributor Covenant Code of Conduct
+See [README](README.md) for more project related information.
 
 ${hash}${hash} Our Pledge
 

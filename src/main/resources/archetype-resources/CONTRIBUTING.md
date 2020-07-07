@@ -1,6 +1,6 @@
 #set($hash = '#')
 ${hash} Contributing
-See [README.md](README.md) for more information about pre-requirements and getting started.
+See [README](README.md) for more project related information.
 
 ${hash}${hash} How to report a problem
 Please search before creating a new issue.
