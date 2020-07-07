@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Version 1.0.0-589285f (Maintenance release)
+## Version 1.0.1 (Maintenance release)
+Released on 2020-07-07
+
+### Changed
+- Update build settings to not be in root directory
+
+### Bug fixes
+What... bugs?! (ignorance is bliss)
+
+## Version 1.0.0 (Maintenance release)
 Released on 2020-05-27
 
 ### Changed
