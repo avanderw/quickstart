@@ -10,6 +10,7 @@
 ## Usage
 
 ```bash
+$ mvn install
 $ mvn archetype:generate \
 -DarchetypeGroupId=net.avdw \
 -DarchetypeArtifactId=quickstart \
@@ -17,7 +18,8 @@ $ mvn archetype:generate \
 -DgroupId=net.avdw \
 -DartifactId=example \
 -Dpackage=net.avdw.example \
--Dversion=1.0-SNAPSHOT
+-Dversion=1.0-SNAPSHOT \
+-DinteractiveMode=false
 $ cd example
 $ mvn package
 $ java -jar target/example.jar

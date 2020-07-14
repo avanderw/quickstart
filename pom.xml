@@ -6,12 +6,13 @@
 
     <groupId>net.avdw</groupId>
     <artifactId>quickstart</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <interactive>false</interactive>
     </properties>
 
     <build>

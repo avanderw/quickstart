@@ -15,21 +15,36 @@
 
     <profiles>
         <profile>
-            <id>develop</id>
+            <id>debug</id>
             <build>
                 <resources>
                     <resource>
-                        <directory>src/develop/resources</directory>
+                        <directory>src/debug/resources</directory>
                         <includes>
-                            <include>tinylog-dev.properties</include>
+                            <include>tinylog-debug.properties</include>
                         </includes>
                     </resource>
                 </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <configuration>
+                            <finalName>${artifactId}.debug</finalName>
+                        </configuration>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
     </profiles>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -44,9 +59,9 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <finalName>${artifactId}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
-                <finalName>${artifactId}</finalName>
-                <appendAssemblyId>false</appendAssemblyId>
                 <executions>
                     <execution>
                         <id>make-assembly</id>
