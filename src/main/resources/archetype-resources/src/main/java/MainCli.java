@@ -1,9 +1,10 @@
-package ${package}.cli;
+package ${package};
 
 import org.tinylog.Logger;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "${artifactId}", description = "Some fancy description", version = "${version}", mixinStandardHelpOptions = true,
+@CommandLine.Command(name = "${artifactId}", description = "Some fancy description", version = "${version}",
+        versionProvider = MainVersion.class, mixinStandardHelpOptions = true,
         subcommands = {})
 public class MainCli implements Runnable {
 
