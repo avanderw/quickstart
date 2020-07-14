@@ -1,4 +1,4 @@
-package net.avdw.property;
+package ${package}.property;
 
 import com.google.inject.BindingAnnotation;
 

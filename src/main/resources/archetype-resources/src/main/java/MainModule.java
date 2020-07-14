@@ -1,13 +1,11 @@
-package $
+package ${package};
 
 import com.google.inject.name.Names;
-import net.avdw.property.AbstractPropertyModule;
+import ${package}.property.AbstractPropertyModule;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-
-{package};
 
 class MainModule extends AbstractPropertyModule {
     @Override

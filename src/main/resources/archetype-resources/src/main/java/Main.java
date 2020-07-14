@@ -1,6 +1,5 @@
 package ${package};
 
-import ${package}.cli.MainCli;
 import picocli.CommandLine;
 
 public final class Main {

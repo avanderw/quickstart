@@ -1,4 +1,4 @@
-package net.avdw.property;
+package ${package}.property;
 
 import org.tinylog.Logger;
 
