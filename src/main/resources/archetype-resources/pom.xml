@@ -21,7 +21,7 @@
                     <resource>
                         <directory>src/debug/resources</directory>
                         <includes>
-                            <include>tinylog-debug.properties</include>
+                            <include>tinylog-dev.properties</include>
                         </includes>
                     </resource>
                 </resources>
