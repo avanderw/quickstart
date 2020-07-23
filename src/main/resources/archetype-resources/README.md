@@ -13,7 +13,7 @@ ${hash}${hash} Getting started
 $ git clone https://github.com/avanderw/${artifactId}.git
 $ cd ${artifactId}/
 $ mvn verify
-$ java -jar ./target/${artifactId}.jar --help
+$ java -jar ./target/${artifactId}-jar-with-dependencies.jar --help
 Usage: ${artifactId} [-hV] [COMMAND]
 about tagline
   -h, --help      Show this help message and exit.
