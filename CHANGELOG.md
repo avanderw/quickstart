@@ -8,25 +8,25 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 *Released on 2020-07-22*
 
 ### Added
-Add default implementation details to META-INF
-Add enforcer plugin
-Create maven-publish.yml
-Add runtime to tinylog-impl dependency
-Add META-INF information for version during build
-Add release and snapshot enforcer rules for artifact version
+- Add default implementation details to META-INF
+- Add enforcer plugin
+- Create maven-publish.yml
+- Add runtime to tinylog-impl dependency
+- Add META-INF information for version during build
+- Add release and snapshot enforcer rules for artifact version
 
 ### Bug fixes
-Fix various package related errors introduced
-Fix picocli version to read pom.properties when not running from jar
-Fix tinylog property file for debug mode
-Fix tinylog property referring to another project for the log file name
-Fix error in pom single assembly
+- Fix various package related errors introduced
+- Fix picocli version to read pom.properties when not running from jar
+- Fix tinylog property file for debug mode
+- Fix tinylog property referring to another project for the log file name
+- Fix error in pom single assembly
 
 ### Changed
-Update picocli to get the version from META-INF
-Update dependency versions
-Update plugin versions to the latest
-Update pom to explicitly include plugins
+- Update picocli to get the version from META-INF
+- Update dependency versions
+- Update plugin versions to the latest
+- Update pom to explicitly include plugins
 
 ## [v1.0.2] (Maintenance release)
 *Released on 2020-07-07*
@@ -46,7 +46,7 @@ Update pom to explicitly include plugins
 - Fix readme reference to wrong license in use
 
 ## [v1.0.1] (Maintenance release)
-Released on 2020-07-07
+*Released on 2020-07-07*
 
 ### Changed
 - Update build settings to not be in root directory

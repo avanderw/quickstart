@@ -7,6 +7,46 @@
 
 ## Getting started
 
+> 2020-07-23 GitHub Packages does not allow for unauthorised access to reading of public repositories. 
+> The below configuration is required to access the repository.
+> This makes the repository primarily useless for open source, configuration free use.  
+
+.m2/settings.xml
+```xml
+...
+<servers>
+    <server>
+        <id>archetype</id>
+        <username>avanderw</username>
+        <password>GITHUB_TOKEN</password>
+    </server>
+</servers>
+<profiles>
+    <profile>
+        <id>github</id>
+        <repositories>
+            <repository>
+                <id>archetype</id>
+                <name>GitHub avanderw/quickstart Maven Archetype Repository</name>
+                <url>https://maven.pkg.github.com/avanderw/quickstart</url>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>false</enabled>
+                </snapshots>
+            </repository>
+        </repositories>
+    </profile>
+</profiles>
+...
+```
+
+```shell script
+$ mvn archetype:generate -DarchetypeGroupId=net.avdw -DarchetypeArtifactId=quickstart -DarchetypeVersion=1.0.3 -P github
+```
+
+
 ## Usage
 
 ```bash
