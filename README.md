@@ -73,6 +73,7 @@ $ mvn archetype:generate \
 -DartifactId=example \
 -Dpackage=net.avdw.example \
 -Dversion=1.0-SNAPSHOT \
+-Dtagline=tagline \
 -DinteractiveMode=false
 ```
 

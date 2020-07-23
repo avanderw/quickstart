@@ -3,7 +3,7 @@ ${hash} ${groupId}.${artifactId}
 ![top-language](https://img.shields.io/github/languages/top/avanderw/${artifactId})
 ![license](https://img.shields.io/github/license/avanderw/${artifactId})
 
-_about tagline_
+_${tagline}_
 
 ${hash}${hash} Showcase
 
@@ -15,7 +15,7 @@ $ cd ${artifactId}/
 $ mvn verify
 $ java -jar ./target/${artifactId}-jar-with-dependencies.jar --help
 Usage: ${artifactId} [-hV] [COMMAND]
-about tagline
+${tagline}
   -h, --help      Show this help message and exit.
   -V, --version   Print version information and exit.
 Commands:

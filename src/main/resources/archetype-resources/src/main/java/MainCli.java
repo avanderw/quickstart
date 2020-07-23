@@ -5,7 +5,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.Spec;
 
-@Command(name = "${artifactId}", description = "Some fancy description", version = "${version}",
+@Command(name = "${artifactId}", description = "${tagline}",
         versionProvider = MainVersion.class, mixinStandardHelpOptions = true,
         subcommands = {})
 public class MainCli implements Runnable {
