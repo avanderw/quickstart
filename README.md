@@ -7,6 +7,7 @@
 
 ## Getting started
 
+### Remote archetype generation
 > 2020-07-23 GitHub Packages does not allow for unauthorised access to reading of public repositories. 
 > The below configuration is required to access the repository.
 > This makes the repository primarily useless for open source, configuration free use.  
@@ -46,23 +47,41 @@
 $ mvn archetype:generate -DarchetypeGroupId=net.avdw -DarchetypeArtifactId=quickstart -DarchetypeVersion=1.0.3 -P github
 ```
 
+### Local archetype generation
 
-## Usage
-
-```bash
+```shell script
 $ mvn install
+```
+
+_Interactive_
+```shell script
 $ mvn archetype:generate \
+-DarchetypeCatalog=local \
 -DarchetypeGroupId=net.avdw \
 -DarchetypeArtifactId=quickstart \
--DarchetypeVersion=1.0.0 \
+-DarchetypeVersion=<version>
+```
+
+_Batch_
+```shell script
+$ mvn archetype:generate \
+-DarchetypeCatalog=local \
+-DarchetypeGroupId=net.avdw \
+-DarchetypeArtifactId=quickstart \
+-DarchetypeVersion=<version> \
 -DgroupId=net.avdw \
 -DartifactId=example \
 -Dpackage=net.avdw.example \
 -Dversion=1.0-SNAPSHOT \
 -DinteractiveMode=false
+```
+
+## Usage
+
+```shell script
 $ cd example
-$ mvn package
-$ java -jar target/example.jar
+$ mvn verify
+$ java -jar target/example-jar-with-dependencies.jar
 ```
 
 ## Support

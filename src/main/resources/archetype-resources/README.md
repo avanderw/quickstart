@@ -23,6 +23,18 @@ Commands:
 
 ${hash}${hash} Usage
 
+${hash}${hash} Configuration
+
+${hash}${hash}${hash} Logging
+_./tinylog.properties_
+```properties
+writer        = file
+writer.file   = ${artifactId}.log
+writer.level  = info
+writer.format = [{level}] at .({class-name}.java:{line}) {message}
+```
+Further documentation can be found at [tinylog.org](https://tinylog.org/v2/configuration/)
+
 ${hash}${hash} Support
 
 ${hash}${hash}${hash} Installing supporting software
