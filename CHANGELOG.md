@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0] (Feature release)
+*Released on 2020-07-24*
+
+### Added
+- Add tagline to required parameters
+- Add logging configuration to README.md
+
+### Updated
+- Update minor version for tagline addition
+- Update test logging to info level
+- Update title in changelog
+- Update readme and changelog to detail how to remotely use archetype
+- Update maven-publish to allow for manual dispatch
+- Update to publish on branch push
+
+### Bug fixes
+- Fix jar name with usage in the README
+- Fix resources not being added to the jar
+- Fix incorrect package for test classes
+
 ## [v1.0.3] (Maintenance release, Update recommended)
 *Released on 2020-07-22*
 
