@@ -53,7 +53,7 @@ $ mvn archetype:generate -DarchetypeGroupId=net.avdw -DarchetypeArtifactId=quick
 $ mvn install
 ```
 
-_Interactive_
+_Interactive (SLOW)_
 ```shell script
 $ mvn archetype:generate \
 -DarchetypeCatalog=local \
@@ -62,7 +62,7 @@ $ mvn archetype:generate \
 -DarchetypeVersion=v2021-07-08.14.25
 ```
 
-_Batch_
+_Batch (FAST)_
 ```shell script
 $ mvn archetype:generate \
 -DarchetypeCatalog=local \
@@ -72,7 +72,7 @@ $ mvn archetype:generate \
 -DgroupId=net.avdw \
 -DartifactId=example \
 -Dpackage=net.avdw.example \
--Dversion=1.0-SNAPSHOT \
+-Dversion=v2021-07-08.14.28 \
 -Dtagline=tagline \
 -DinteractiveMode=false
 ```
@@ -81,7 +81,7 @@ $ mvn archetype:generate \
 
 ```shell script
 $ cd example
-$ mvn verify -Pdebug
+$ mvn verify
 $ java -jar target/example-jar-with-dependencies.jar
 ```
 
