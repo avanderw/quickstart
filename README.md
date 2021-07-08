@@ -81,7 +81,7 @@ $ mvn archetype:generate \
 
 ```shell script
 $ cd example
-$ mvn verify
+$ mvn verify -Pdebug
 $ java -jar target/example-jar-with-dependencies.jar
 ```
 

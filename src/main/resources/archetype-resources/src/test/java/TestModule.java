@@ -1,4 +1,4 @@
-package net.avdw.hangman;
+package ${package};
 
 import com.google.inject.AbstractModule;
 
