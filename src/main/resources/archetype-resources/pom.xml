@@ -13,62 +13,6 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
-    <profiles>
-        <profile>
-            <id>debug</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/debug/resources</directory>
-                        <includes>
-                            <include>tinylog-dev.properties</include>
-                        </includes>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                </resources>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <version>3.0.0-M3</version>
-                        <configuration>
-                            <rules>
-                                <requireSnapshotVersion/>
-                            </rules>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <version>3.0.0-M3</version>
-                        <configuration>
-                            <rules>
-                                <requireReleaseVersion/>
-                                <requireFilesDontExist>
-                                    <files>
-                                        <file>${project.build.outputDirectory}/tinylog-dev.properties</file>
-                                    </files>
-                                </requireFilesDontExist>
-                            </rules>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
     <build>
         <resources>
             <resource>
@@ -109,7 +53,7 @@
                         </goals>
                         <configuration>
                             <descriptors>
-                                <descriptor>src/build/assembly/zip.xml</descriptor>
+                                <descriptor>build/zip-assembly.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>
@@ -131,6 +75,7 @@
                                 <banDuplicatePomDependencyVersions/>
                                 <reactorModuleConvergence/>
                                 <requireReleaseDeps/>
+                                <requireReleaseVersion/>
                                 <requireMavenVersion>
                                     <version>3.3.9</version>
                                 </requireMavenVersion>
@@ -142,7 +87,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.0</version>
                 <configuration>
                     <linkXRef>false</linkXRef>
                 </configuration>
@@ -155,7 +100,7 @@
                         </goals>
                         <configuration>
                             <verbose>true</verbose>
-                            <excludeFromFailureFile>src/build/pmd-suppressions.properties</excludeFromFailureFile>
+                            <excludeFromFailureFile>build/pmd-suppressions.properties</excludeFromFailureFile>
                         </configuration>
                     </execution>
                 </executions>
@@ -200,26 +145,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.1</version>
-                <configuration>
-                    <violationSeverity>warning</violationSeverity>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
-                    <suppressionsLocation>src/build/checkstyle-suppressions.xml</suppressionsLocation>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.0.0</version>
@@ -227,6 +152,7 @@
                     <effort>Max</effort>
                     <threshold>Low</threshold>
                     <failOnError>true</failOnError>
+                    <excludeFilterFile>build/spotbugs-exclude-filter.xml</excludeFilterFile>
                 </configuration>
                 <executions>
                     <execution>
@@ -240,7 +166,13 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.5</version>
+                <version>0.8.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*_Factory*</exclude>
+                        <exclude>**/Dagger*Component*</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -260,12 +192,12 @@
                                         <limit>
                                             <counter>INSTRUCTION</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.70</minimum>
+                                            <minimum>0.50</minimum>
                                         </limit>
                                         <limit>
                                             <counter>CLASS</counter>
                                             <value>MISSEDRATIO</value>
-                                            <maximum>0.30</maximum>
+                                            <maximum>0.50</maximum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -290,6 +222,20 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.20</version>
+                        </path>
+                        <path>
+                            <groupId>com.google.dagger</groupId>
+                            <artifactId>dagger-compiler</artifactId>
+                            <version>2.35.1</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -333,47 +279,56 @@
     </build>
 
     <dependencies>
+        <!-- Dependency injection -->
         <dependency>
-            <groupId>org.fusesource.jansi</groupId>
-            <artifactId>jansi</artifactId>
-            <version>1.18</version>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger</artifactId>
+            <version>2.37</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-utils</artifactId>
-            <version>3.2.1</version>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
         </dependency>
+
+        <!-- Code generation -->
         <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-model</artifactId>
-            <version>3.6.3</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
         </dependency>
+
+        <!-- Command line -->
         <dependency>
             <groupId>info.picocli</groupId>
             <artifactId>picocli</artifactId>
-            <version>4.4.0</version>
+            <version>4.6.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+
+        <!-- Logging -->
         <dependency>
             <groupId>org.tinylog</groupId>
             <artifactId>tinylog-api</artifactId>
-            <version>2.1.2</version>
+            <version>2.4.0-M1</version>
         </dependency>
         <dependency>
             <groupId>org.tinylog</groupId>
             <artifactId>tinylog-impl</artifactId>
-            <version>2.1.2</version>
+            <version>2.4.0-M1</version>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>4.2.3</version>
-            <classifier>no_aop</classifier>
-        </dependency>
+
+        <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

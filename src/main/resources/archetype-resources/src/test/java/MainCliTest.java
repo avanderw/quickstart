@@ -3,23 +3,29 @@ package ${package};
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class MainCliTest {
+import static org.junit.Assert.assertTrue;
 
+public class MainCliTest {
     private static CliTester cliTester;
 
     @BeforeClass
     public static void beforeClass() {
-        cliTester = new CliTester(MainCli.class, new TestGuiceFactory(new TestModule()));
+        cliTester = new CliTester();
     }
 
-    @Test(timeout = 256)
-    public void testEmpty() {
-        cliTester.execute().success().contains("Usage");
+    public void testHelp() {
+        cliTester.execute("--help").success();
     }
 
-    @Test(timeout = 256)
+    @Test(timeout = TestConstant.PERFORMANCE_TIMEOUT)
     public void testVersion() {
-        cliTester.execute("--version").success();
+        cliTester.execute("--version").success()
+                .contains("Unknown");
     }
 
+    @Test(timeout = TestConstant.PERFORMANCE_TIMEOUT)
+    public void testMain() {
+        cliTester.execute().success()
+                .contains("Usage");
+    }
 }

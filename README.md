@@ -59,7 +59,7 @@ $ mvn archetype:generate \
 -DarchetypeCatalog=local \
 -DarchetypeGroupId=net.avdw \
 -DarchetypeArtifactId=quickstart \
--DarchetypeVersion=v2021-07-08.14.25
+-DarchetypeVersion=v2021-07-09.01.18
 ```
 
 _Batch (FAST)_
@@ -68,11 +68,11 @@ $ mvn archetype:generate \
 -DarchetypeCatalog=local \
 -DarchetypeGroupId=net.avdw \
 -DarchetypeArtifactId=quickstart \
--DarchetypeVersion=v2021-07-08.14.25 \
+-DarchetypeVersion=v2021-07-09.01.18 \
 -DgroupId=net.avdw \
 -DartifactId=example \
 -Dpackage=net.avdw.example \
--Dversion=v2021-07-08.14.28 \
+-Dversion=v2021-07-09.01.18 \
 -Dtagline=tagline \
 -DinteractiveMode=false
 ```
