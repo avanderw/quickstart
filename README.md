@@ -59,7 +59,7 @@ $ mvn archetype:generate \
 -DarchetypeCatalog=local \
 -DarchetypeGroupId=net.avdw \
 -DarchetypeArtifactId=quickstart \
--DarchetypeVersion=<version>
+-DarchetypeVersion=v2021-07-08.14.25
 ```
 
 _Batch_
@@ -68,7 +68,7 @@ $ mvn archetype:generate \
 -DarchetypeCatalog=local \
 -DarchetypeGroupId=net.avdw \
 -DarchetypeArtifactId=quickstart \
--DarchetypeVersion=<version> \
+-DarchetypeVersion=v2021-07-08.14.25 \
 -DgroupId=net.avdw \
 -DartifactId=example \
 -Dpackage=net.avdw.example \
